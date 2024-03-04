@@ -32,6 +32,8 @@ public class UserDaoHibernateImpl implements UserDao {
             Query query = session.createSQLQuery(sql).addEntity(User.class);
 
             transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -45,6 +47,8 @@ public class UserDaoHibernateImpl implements UserDao {
             Query query = session.createSQLQuery(sql).addEntity(User.class);
 
             transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -88,6 +92,8 @@ public class UserDaoHibernateImpl implements UserDao {
 
         try (Session session = sessionFactory.openSession()) {
             return session.createQuery("from User", User.class).list();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -101,6 +107,8 @@ public class UserDaoHibernateImpl implements UserDao {
             Query query = session.createNativeQuery(sql).addEntity(User.class);
 
             transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
